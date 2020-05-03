@@ -1,4 +1,4 @@
-package config
+package springcfg
 
 // DeepMerge deeply merges two maps of type `map[string]interface{}`
 // all fields of the source map override correspondent fields of the target map
