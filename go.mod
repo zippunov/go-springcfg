@@ -1,4 +1,4 @@
-module github.com/zippunov/spring-config-go
+module github.com/zippunov/go-springcfg
 
 go 1.13
 
