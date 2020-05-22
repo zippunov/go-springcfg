@@ -46,7 +46,7 @@ func (l *Loader) LoadConfig() (Data, error) {
 
 	if bootstrap.Has("spring.config.location") {
 		// load external yamls from the local paths
-		regex := regexp.MustCompile(`^file:(\/\w.+\.yaml)$`)
+		regex := regexp.MustCompile(`^file:(\/\w.+\.ya?ml)$`)
 		setting := bootstrap.GetString("spring.config.location")
 		tokens := strings.Split(setting, ",")
 		tokens = funk.FilterString(tokens, func(s string) bool {
