@@ -57,9 +57,10 @@ func (l *Loader) LoadConfig() (Data, error) {
 			paths[idx] = regex.FindStringSubmatch(t)[1]
 		}
 		extData, err := l.loadMerged(paths)
-		if err != nil {
+		if err == nil {
 			rslt = rslt.Merge(extData)
 		}
+
 	}
 
 	return rslt, nil
