@@ -74,7 +74,8 @@ func (c *SpringCloudConfigClient) Fetch() (Data, error) {
 	}
 	docs := []map[string]interface{}{}
 	for _, source := range configBody.PropertySources {
-		docs = append(docs, source.Source)
+		doc := expandProps(source.Source).(map[string]interface{})
+		docs = append(docs, doc)
 	}
 	return NewData(docs...), nil
 }

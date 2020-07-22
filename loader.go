@@ -38,10 +38,9 @@ func (l *Loader) LoadConfig() (Data, error) {
 			Label:      bootstrap.GetString("spring.cloud.config.label"),
 		}
 		cloudData, err := configClient.Fetch()
-		if err != nil {
-			return rslt, err
+		if err == nil {
+			rslt = rslt.Merge(cloudData)
 		}
-		rslt = rslt.Merge(cloudData)
 	}
 
 	if bootstrap.Has("spring.config.location") {
