@@ -104,6 +104,9 @@ func (l *Loader) shouldUseDoc(doc map[string]interface{}) bool {
 func (l *Loader) loadYaml(path string) (Data, error) {
 	f, fileErr := os.Open(path)
 	if fileErr != nil {
+		if os.IsNotExist(fileErr) {
+			return Data{}, nil
+		}
 		return Data{}, fileErr
 	}
 	defer f.Close()
